@@ -1,0 +1,128 @@
+/* ===== auth.css ===== */
+
+/* ===== 共通ベース ===== */
+.auth-form__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px);
+    padding: 40px 16px;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* ===== 見出し ===== */
+.auth-form__heading {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.auth-form__heading h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 2rem;
+    color: #82756A;
+    letter-spacing: 0.1em;
+}
+
+/* ===== カード ===== */
+.auth-form__card {
+    width: 40vw;
+    background-color: #ffffff;
+    border: 1.5px solid #E0D8D0;
+    border-radius: 16px;
+    padding: 48px 40px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== フォーム ===== */
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ===== フィールドグループ ===== */
+.auth-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.auth-form__group label {
+    font-size: 0.875rem;
+    font-weight: bold;
+    color: #3D3530;
+}
+
+.auth-form__group input {
+    width: 100%;
+    height: 48px;
+    padding: 0 16px;
+    font-size: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    color: #3D3530;
+    background-color: #FAF8F5;
+    border: 1.5px solid #E0D8D0;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+
+.auth-form__group input:focus {
+    border-color: #82756A;
+}
+
+/* ===== エラー ===== */
+.form__error {
+    min-height: 20px;
+}
+
+.auth-form__error-message {
+    font-size: 0.8rem;
+    color: #E8826A;
+    margin: 0;
+}
+
+/* ===== ボタン ===== */
+.auth__form-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.btn-primary {
+    padding: 12px 48px;
+    font-size: 1rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    background-color: #82756A;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #6B5F55;
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 1200px) {
+    .auth-form__card {
+        width: 60vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .auth-form__card {
+        width: 90vw;
+        padding: 32px 24px;
+    }
+
+    .auth-form__heading h2 {
+        font-size: 1.5rem;
+    }
+}

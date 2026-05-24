@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TodoController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TodoController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,12 +18,18 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/', [TodoController::class, 'index']);
-Route::post('/todos', [TodoController::class, 'store']);
-Route::patch('/todos/update', [TodoController::class, 'update']);
-Route::delete('/todos/delete', [TodoController::class, 'destroy']);
-Route::get('/todos/search', [TodoController::class, 'search']);
-Route::get('/categories', [CategoryController::class, 'index']);
-Route::post('/categories', [CategoryController::class, 'store']);
-Route::patch('/categories/update', [CategoryController::class, 'update']);
-Route::delete('/categories/delete', [CategoryController::class, 'destroy']);
+Route::middleware('auth')->group(function () {
+    Route::get('/', [TodoController::class, 'index']);          // TODO一覧
+    Route::post('/todos', [TodoController::class, 'store']);    // TODO作成
+    Route::patch('/todos/{todo}', [TodoController::class, 'update']);   // TODO更新
+    Route::delete('/todos/{todo}', [TodoController::class, 'destroy']); // TODO削除
+    Route::get('/todos/search', [TodoController::class, 'search']);     // TODO検索
+
+    Route::get('/categories', [CategoryController::class, 'index']);           // カテゴリ一覧
+    Route::post('/categories', [CategoryController::class, 'store']);          // カテゴリ作成
+    Route::patch('/categories/{category}', [CategoryController::class, 'update']); // カテゴリ更新
+    Route::delete('/categories/{category}', [CategoryController::class, 'destroy']); // カテゴリ削除
+
+    Route::post('/todos/{todo}/like', [TodoController::class, 'like']);   // いいね
+    Route::delete('/todos/{todo}/like', [TodoController::class, 'unlike']); // いいね解除
+});

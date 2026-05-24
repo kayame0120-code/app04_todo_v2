@@ -25,9 +25,10 @@ class CategoryRequest extends FormRequest
     {
         return [
             //
-            'name' => ['required', 'string', 'max:10','unique:categories']
+            'name' => ['required', 'string', 'max:10', 'unique:categories'],
         ];
     }
+
     public function messages()
     {
         return [
